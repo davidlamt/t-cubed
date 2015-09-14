@@ -1,7 +1,7 @@
 $(document).ready(function() {
     var xMark = "x",
         oMark = "o",
-        turns = 2;
+        turns = 0;
         spot1 = $("#spot-1"),
         spot2 = $("#spot-2"),
         spot3 = $("#spot-3"),
@@ -14,8 +14,7 @@ $(document).ready(function() {
         pMessage = $("#message");
     
     // A.I's first move
-    spot5.text("x");
-    spot5.addClass("x-mark");
+    spot5.text("x").addClass("x-mark");
     
     // Game event handler
     $("#board li").on("click", function() {
@@ -40,6 +39,14 @@ $(document).ready(function() {
                 }                
             }
         }
+    });
+    
+    // Reset button handler
+    $("#reset-btn").on("click", function() {
+        $("#board li").text("").removeClass("o-mark x-mark");
+        spot5.text("x").addClass("x-mark");
+        turns = 0;
+        pMessage.text("New game started!");
     });
     
     /* ---------------------------------------- */
