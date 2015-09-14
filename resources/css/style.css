@@ -104,6 +104,27 @@ header {
     background-color: #1a252f;
 }
 
+.x-mark {
+    color: #ff0000 !important;
+}
+
+.o-mark {
+    color: #27ae60 !important;
+}
+
+/* ---------------------------------------- */
+/* MESSAGE SECTION */
+/* ---------------------------------------- */
+
+#message-section p {
+    text-align: center;
+    color: #9b59b6;
+    font-weight: 400;
+    font-size: 120%;
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
 /* ---------------------------------------- */
 /* RESET SECTION */
 /* ---------------------------------------- */
