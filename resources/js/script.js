@@ -29,14 +29,9 @@ $(document).ready(function() {
                 if (checkEndGame() == true) {
                     turns = 1;
                 }
-            } else {
+                
                 // AI move
-                pMessage.text("");
-                $(this).text("x").addClass("x-mark");
-                turns++;
-                if (checkEndGame() == true) {
-                    turns = 1;
-                }                
+                AImove();
             }
         }
     });
@@ -65,7 +60,6 @@ $(document).ready(function() {
             spot1.hasClass("o-mark") && spot5.hasClass("o-mark") && spot9.hasClass("o-mark") ||
             spot3.hasClass("o-mark") && spot5.hasClass("o-mark") && spot7.hasClass("o-mark")) {
                 pMessage.text("Winner: Player O");
-                $("#board li").text("").removeClass("o-mark x-mark");
                 gameEnded = true;
         } else if (spot1.hasClass("x-mark") && spot2.hasClass("x-mark") && spot3.hasClass("x-mark") ||
             spot4.hasClass("x-mark") && spot5.hasClass("x-mark") && spot6.hasClass("x-mark") ||
@@ -75,15 +69,97 @@ $(document).ready(function() {
             spot3.hasClass("x-mark") && spot6.hasClass("x-mark") && spot9.hasClass("x-mark") ||
             spot1.hasClass("x-mark") && spot5.hasClass("x-mark") && spot9.hasClass("x-mark") ||
             spot3.hasClass("x-mark") && spot5.hasClass("x-mark") && spot7.hasClass("x-mark")) {
-                pMessage.text("Winner: Player X");
-                $("#board li").text("").removeClass("o-mark x-mark");   
+                pMessage.text("Winner: Player X"); 
                 gameEnded = true;
-        } else if (turns == 9) {
+        } else if (turns == 8) {
             pMessage.text("Tied game!");
-            $("#board li").text("").removeClass("o-mark x-mark");
-            gameEnded = true;
+            gameEnded = true; 
         }
         
         return gameEnded;
     }
+    
+    function AImove() {
+        if (turns == 1) {     
+            if (!spot1.hasClass("o-mark") && !spot3.hasClass("o-mark") && !spot7.hasClass("o-mark") && !spot9.hasClass("o-mark")) {
+                spot9.text("x").addClass("x-mark");
+                turns++;
+            } else {
+                spot6.text("x").addClass("x-mark");
+                turns++;
+            }
+        } else {
+            if(!spot1.hasClass("o-mark") && spot2.hasClass("x-mark") && spot3.hasClass("x-mark")) {
+                spot1.text("x").addClass("x-mark");
+                turns++;
+            } else if (spot1.hasClass("x-mark") && spot2.hasClass("x-mark") && !spot3.hasClass("o-mark")) {
+                spot3.text("x").addClass("x-mark");
+                turns++;
+            } else if (!spot4.hasClass("o-mark") && spot5.hasClass("x-mark") && spot6.hasClass("x-mark")) {
+                spot4.text("x").addClass("x-mark");
+                turns++;
+            } else if (spot4.hasClass("x-mark") && spot5.hasClass("x-mark") && !spot6.hasClass("o-mark")) {
+                spot6.text("x").addClass("x-mark");
+                turns++;
+            } else if (!spot7.hasClass("o-mark") && spot8.hasClass("x-mark") && spot9.hasClass("x-mark")) {
+                spot7.text("x").addClass("x-mark");
+                turns++;
+            } else if (spot7.hasClass("x-mark") && spot8.hasClass("x-mark") && !spot9.hasClass("o-mark")) {
+                spot9.text("x").addClass("x-mark");
+                turns++;
+            } else if (!spot1.hasClass("o-mark") && spot4.hasClass("x-mark") && spot7.hasClass("x-mark")) {
+                spot1.text("x").addClass("x-mark");
+                turns++;                
+            } else if (spot1.hasClass("x-mark") && spot4.hasClass("x-mark") && !spot7.hasClass("o-mark")) {
+                spot7.text("x").addClass("x-mark");
+                turns++;                 
+            } else if (!spot2.hasClass("o-mark") && spot5.hasClass("x-mark") && spot8.hasClass("x-mark")) {
+                spot2.text("x").addClass("x-mark");
+                turns++;                 
+            } else if (spot2.hasClass("x-mark") && spot5.hasClass("x-mark") && !spot8.hasClass("o-mark")) {
+                spot8.text("x").addClass("x-mark");
+                turns++;                    
+            } else if (!spot3.hasClass("o-mark") && spot6.hasClass("x-mark") && spot9.hasClass("x-mark")) {
+                spot3.text("x").addClass("x-mark");
+                turns++;                   
+            } else if (spot3.hasClass("x-mark") && spot6.hasClass("x-mark") && !spot9.hasClass("o-mark")) {
+                spot9.text("x").addClass("x-mark");
+                turns++;                                   
+            }
+            
+            else {
+                if (!spot1.hasClass("o-mark")) {
+                    spot1.text("x").addClass("x-mark");
+                    turns++;   
+                } else if (!spot2.hasClass("o-mark")) {
+                    spot2.text("x").addClass("x-mark");
+                    turns++;   
+                } else if (!spot3.hasClass("o-mark")) {
+                    spot3.text("x").addClass("x-mark");
+                    turns++;   
+                } else if (!spot4.hasClass("o-mark")) {
+                    spot4.text("x").addClass("x-mark");
+                    turns++;   
+                } else if (!spot5.hasClass("o-mark")) {
+                    spot5.text("x").addClass("x-mark");
+                    turns++;   
+                } else if (!spot6.hasClass("o-mark")) {
+                    spot6.text("x").addClass("x-mark");
+                    turns++;   
+                } else if (!spot7.hasClass("o-mark")) {
+                    spot7.text("x").addClass("x-mark");
+                    turns++;   
+                } else if (!spot8.hasClass("o-mark")) {
+                    spot8.text("x").addClass("x-mark");
+                    turns++;   
+                } else if (!spot9.hasClass("o-mark")) {
+                    spot9.text("x").addClass("x-mark");
+                    turns++;   
+                }
+            }
+        }
+        
+        checkEndGame();
+    }
+    
 });
