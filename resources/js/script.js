@@ -27,14 +27,14 @@ $(document).ready(function() {
                 turns++;
                 $(this).text("o").addClass("o-mark");
                 if (checkEndGame() == true) {
-                    turns = 1;
+                    turns = 0;
                 }
                 
                 if (!checkEndGame()) {
                     // AI move
                     AImove();
                     if (checkEndGame() == true) {
-                        turns = 1;
+                        turns = 0;
                     }                        
                 }            
             }
@@ -93,7 +93,8 @@ $(document).ready(function() {
                 spot6.text("x").addClass("x-mark");
                 turns++;
             }
-        } else {
+        } else {            
+            // Making a winning move
             if (spot1.hasClass("o-mark") && spot4.hasClass("o-mark") && !spot7.hasClass("x-mark")) {
                 spot7.text("x").addClass("x-mark");
                 turns++;                
@@ -145,7 +146,49 @@ $(document).ready(function() {
             } else if (spot3.hasClass("x-mark") && spot5.hasClass("x-mark") && !spot7.hasClass("o-mark")) {
                 spot7.text("x").addClass("x-mark");
                 turns++;                        
-            } else {
+            } 
+                
+            // Blocking the user from winning
+            else if (!spot1.hasClass("x-mark") && spot2.hasClass("o-mark") && spot3.hasClass("o-mark")) {
+                spot1.text("x").addClass("x-mark");
+                turns++;                       
+            } else if (spot1.hasClass("o-mark") && !spot2.hasClass("x-mark") && spot3.hasClass("o-mark")) {
+                spot2.text("x").addClass("x-mark");
+                turns++;                        
+            } else if (spot1.hasClass("o-mark") && spot2.hasClass("o-mark") && !spot3.hasClass("x-mark")) {
+                spot3.text("x").addClass("x-mark");
+                turns++;                       
+            } else if (!spot7.hasClass("x-mark") && spot8.hasClass("o-mark") && spot9.hasClass("o-mark")) {
+                spot7.text("x").addClass("x-mark");
+                turns++;                             
+            } else if (spot7.hasClass("o-mark") && !spot8.hasClass("x-mark") && spot9.hasClass("o-mark")) {
+                spot8.text("x").addClass("x-mark");
+                turns++;                          
+            } else if (spot7.hasClass("o-mark") && spot8.hasClass("o-mark") && !spot9.hasClass("x-mark")) {
+                spot9.text("x").addClass("x-mark");
+                turns++;                     
+            } else if (!spot1.hasClass("x-mark") && spot4.hasClass("o-mark") && spot7.hasClass("o-mark")) {
+                spot1.text("x").addClass("x-mark");
+                turns++;                   
+            } else if (spot1.hasClass("o-mark") && !spot4.hasClass("x-mark") && spot7.hasClass("o-mark")) {
+                spot4.text("x").addClass("x-mark");
+                turns++;                           
+            } else if (spot1.hasClass("o-mark") && spot4.hasClass("o-mark") && !spot7.hasClass("x-mark")) {
+                spot7.text("x").addClass("x-mark");
+                turns++;                      
+            } else if (!spot3.hasClass("x-mark") && spot6.hasClass("o-mark") && spot9.hasClass("o-mark")) {
+                spot3.text("x").addClass("x-mark");
+                turns++;                   
+            } else if (spot3.hasClass("o-mark") && !spot6.hasClass("x-mark") && spot9.hasClass("o-mark")) {
+                spot6.text("x").addClass("x-mark");
+                turns++;                    
+            } else if (spot3.hasClass("o-mark") && spot6.hasClass("o-mark") && !spot9.hasClass("x-mark")) {
+                spot9.text("x").addClass("x-mark");
+                turns++;                         
+            }    
+            
+                // Trying default move if neither
+                else {
                 if (!spot1.hasClass("o-mark") && !spot1.hasClass("x-mark")) {
                     spot1.text("x").addClass("x-mark");
                     turns++;   
