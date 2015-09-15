@@ -5,7 +5,7 @@
 **v1.0**
 
 ## Demo
-To view a live demo, please click <a href="http://davidtranscend.com/portfolio/t-cubed/" target="_blank">here</a>.
+To view a live demo, please click <a href="http://davidtranscend.com/Portfolio/t-cubed/" target="_blank">here</a>.
 
 ## Installation
 The most recent version of this project is available for download under the release tab.
