@@ -1,21 +1,23 @@
 # T^3 
-**T^3** (pronounced t-cubed) is a simple A.I. versus player tic tac toe game.
+
+A simple A.I. versus player tic tac toe game.
 
 ## Version
-**v1.0**
+
+**1.0.0**
 
 ## Demo
-To view a live demo, please click <a href="http://davidtranscend.com/Portfolio/t-cubed/" target="_blank">here</a>.
 
-## Installation
-The most recent version of this project is available for download under the release tab.
+[http://davidtranscend.com/portfolio/t-cubed/](http://davidtranscend.com/portfolio/t-cubed/)
 
-## Vendors
-**T^3** uses the following open source projects
-* <a href="https://jquery.com/" target="_blank">jQuery </a>
+## History
+
+[Change Log](https://github.com/davidlamt/t-cubed/blob/master/CHANGELOG.md)
 
 ## License
-<a href="https://github.com/davidlamt/t-cubed/blob/master/LICENSE" target="_blank">MIT License</a>
+
+[MIT License](https://github.com/davidlamt/t-cubed/blob/master/LICENSE)
 
 ## Author
-<a href="http://davidtranscend.com/" target="_blank">David Tran</a>
+
+[David Tran](http://davidtranscend.com/) 
