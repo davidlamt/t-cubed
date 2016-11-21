@@ -20,4 +20,4 @@ A simple A.I. versus player tic tac toe game.
 
 ## Author
 
-[David Tran](http://davidtranscend.com/) 
+[David Tran](http://davidtranscend.com/)
